@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="fr" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TXLLZOID — Comptes Premium Pas Cher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131d;
+      --text: #e8e6f0;
+      --primary: #7c3aed;
+      --secondary: #1e1e2e;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    /* Animated gradient bg */
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -30px) scale(1.2); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-border {
+      0%, 100% { border-color: var(--primary); box-shadow: 0 0 15px rgba(124, 58, 237, 0.2); }
+      50% { border-color: #a78bfa; box-shadow: 0 0 25px rgba(124, 58, 237, 0.4); }
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 0.7s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-slide-down {
+      animation: slideDown 0.5s ease forwards;
+    }
+
+    .card-product {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-product:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
+    }
+
+    .btn-pay {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-pay::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-pay:hover::before {
+      left: 100%;
+    }
+
+    .promo-banner {
+      background: linear-gradient(90deg, #7c3aed, #ec4899, #7c3aed);
+      background-size: 200% 100%;
+      animation: shimmerBanner 3s ease infinite;
+    }
+
+    @keyframes shimmerBanner {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .qr-container {
+      animation: pulse-border 2.5s ease-in-out infinite;
+    }
+
+    /* Grid pattern */
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full" style="background-color: var(--bg); color: var(--text);">
+  <div id="app-wrapper" class="w-full h-full overflow-auto grid-pattern" style="position: relative;"><!-- Glowing orbs -->
+   <div class="hero-glow" style="top: -200px; left: -100px; background: #7c3aed;"></div>
+   <div class="hero-glow" style="top: 300px; right: -150px; background: #ec4899; animation-delay: 3s;"></div>
+   <div class="hero-glow" style="bottom: 100px; left: 30%; background: #3b82f6; animation-delay: 5s;"></div><!-- Promo Banner -->
+   <div id="promo-banner" class="promo-banner w-full py-2.5 px-4 text-center text-white font-semibold text-sm tracking-wide animate-slide-down" style="position: relative; z-index: 50;">
+    🔥 OFFRE LIMITÉE — Tous les comptes à partir de 3€ !
+   </div><!-- Header -->
+   <header class="w-full px-6 py-6 flex items-center justify-between max-w-6xl mx-auto animate-fade-up" style="animation-delay: 0.1s; position: relative; z-index: 10;">
+    <div class="flex items-center gap-3">
+     <div style="width: 42px; height: 42px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+      <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" />
+      </svg>
+     </div>
+     <h1 id="shop-title" class="text-xl font-bold tracking-tight" style="color: var(--text);">TXLLZOID</h1>
+    </div><a href="https://www.paypal.com/paypalme/tallzoid" target="_blank" rel="noopener noreferrer" class="btn-pay px-5 py-2.5 rounded-xl font-semibold text-sm text-white" style="background: var(--primary);"> 💳 Payer maintenant </a>
+   </header><!-- Main -->
+   <main class="w-full max-w-6xl mx-auto px-6 pb-16" style="position: relative; z-index: 10;"><!-- Hero -->
+    <section class="text-center py-12 animate-fade-up" style="animation-delay: 0.2s;">
+     <div class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider mb-6" style="background: var(--secondary); color: var(--primary); border: 1px solid rgba(124,58,237,0.3);">
+      ✨ PREMIUM • FIABLE • PAS CHER
+     </div>
+     <h2 id="shop-subtitle" class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5" style="color: var(--text);">Tes comptes premium<br>
+      au <span style="background: linear-gradient(135deg, #7c3aed, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">meilleur prix</span></h2>
+     <p class="text-lg max-w-xl mx-auto" style="color: #8b8a97;">Netflix, Disney+, Prime Video et plus encore. Comptes garantis, livrés en quelques minutes.</p>
+    </section><!-- Products Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16" id="products-grid"><!-- Cards rendered by JS -->
+    </section><!-- Payment Section -->
+    <section class="animate-fade-up" style="animation-delay: 0.8s;">
+     <div class="rounded-2xl p-8 md:p-10 text-center" style="background: var(--surface); border: 1px solid rgba(124,58,237,0.15);">
+      <h3 id="payment-title" class="text-2xl md:text-3xl font-bold mb-3" style="color: var(--text);">Paiement sécurisé via PayPal</h3>
+      <p class="mb-8 text-base" style="color: #8b8a97;">Scanne le QR code ou clique sur le bouton pour payer directement</p>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8"><!-- QR Code -->
+       <div class="qr-container rounded-2xl p-5" style="background: white; border: 2px solid var(--primary);">
+        <svg id="qr-svg" width="180" height="180" viewbox="0 0 180 180" xmlns="http://www.w3.org/2000/svg"><!-- QR code representation -->
+        </svg>
+        <p class="text-xs mt-2 font-mono font-semibold" style="color: #333;">paypal.me/tallzoid</p>
+       </div>
+       <div class="flex flex-col items-center gap-4"><span class="text-sm font-medium" style="color: #8b8a97;">— ou —</span> <a href="https://www.paypal.com/paypalme/tallzoid" target="_blank" rel="noopener noreferrer" class="btn-pay inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-white text-lg" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+         <svg width="24" height="24" viewbox="0 0 24 24" fill="currentColor">
+          <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.603c-.564 0-1.04.408-1.13.964L7.076 21.337z" />
+         </svg> Payer avec PayPal </a>
+        <div class="flex items-center gap-2 mt-1">
+         <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" />
+         </svg><span class="text-xs" style="color: #22c55e;">Transaction protégée</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- How it works -->
+    <section class="mt-16 animate-fade-up" style="animation-delay: 1s;">
+     <h3 class="text-2xl font-bold text-center mb-10" style="color: var(--text);">Comment ça marche ?</h3>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="text-center p-6 rounded-2xl" style="background: var(--surface); border: 1px solid rgba(124,58,237,0.08);">
+       <div class="text-4xl mb-4">
+        🛒
+       </div>
+       <h4 class="font-bold text-lg mb-2" style="color: var(--text);">1. Choisis ton compte</h4>
+       <p class="text-sm" style="color: #8b8a97;">Sélectionne le service streaming qui te plaît</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl" style="background: var(--surface); border: 1px solid rgba(124,58,237,0.08);">
+       <div class="text-4xl mb-4">
+        💸
+       </div>
+       <h4 class="font-bold text-lg mb-2" style="color: var(--text);">2. Paye via PayPal</h4>
+       <p class="text-sm" style="color: #8b8a97;">Envoie le montant avec le nom du service en message</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl" style="background: var(--surface); border: 1px solid rgba(124,58,237,0.08);">
+       <div class="text-4xl mb-4">
+        ⚡
+       </div>
+       <h4 class="font-bold text-lg mb-2" style="color: var(--text);">3. Reçois tes accès</h4>
+       <p class="text-sm" style="color: #8b8a97;">Identifiants envoyés en quelques minutes après paiement</p>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="w-full py-8 px-6 text-center" style="border-top: 1px solid rgba(124,58,237,0.1); position: relative; z-index: 10;">
+    <p id="footer-text" class="text-sm" style="color: #5a5969;">© 2025 TXLLZOID — Tous droits réservés</p>
+   </footer>
+  </div>
+  <script>
+    // Product data
+    const products = [
+      {
+        name: 'Netflix',
+        price: '3,00€',
+        emoji: '🎬',
+        desc: 'Compte Netflix Premium — Films, séries, 4K Ultra HD',
+        badge: 'BEST-SELLER',
+        gradient: 'linear-gradient(135deg, #e50914, #831010)'
+      },
+      {
+        name: 'Disney+ Premium',
+        price: '3,00€',
+        emoji: '🏰',
+        desc: 'Compte Disney+ — Marvel, Star Wars, Pixar et plus',
+        badge: 'POPULAIRE',
+        gradient: 'linear-gradient(135deg, #1a3a7a, #0d6efd)'
+      },
+      {
+        name: 'Prime Video',
+        price: '3,50€',
+        emoji: '📦',
+        desc: 'Compte Amazon Prime Video — Exclusivités & Originals',
+        badge: null,
+        gradient: 'linear-gradient(135deg, #00a8e1, #146eb4)'
+      },
+      {
+        name: 'Paramount+',
+        price: '3,00€',
+        emoji: '⛰️',
+        desc: 'Compte Paramount+ — Séries exclusives & films',
+        badge: null,
+        gradient: 'linear-gradient(135deg, #0068ff, #003daa)'
+      },
+      {
+        name: 'DAZN',
+        price: '3,00€',
+        emoji: '⚽',
+        desc: 'Compte DAZN — Sport en direct, football, boxe',
+        badge: 'SPORT',
+        gradient: 'linear-gradient(135deg, #f5ff00, #0d0d0d)'
+      },
+      {
+        name: 'UFC Premium',
+        price: '3,00€',
+        emoji: '🥊',
+        desc: 'Compte UFC Fight Pass — Combats en direct & replays',
+        badge: 'COMBAT',
+        gradient: 'linear-gradient(135deg, #d4af37, #8b0000)'
+      }
+    ];
+
+    // Render product cards
+    function renderProducts() {
+      const grid = document.getElementById('products-grid');
+      products.forEach((p, i) => {
+        const card = document.createElement('div');
+        card.className = 'card-product rounded-2xl overflow-hidden animate-fade-up';
+        card.style.cssText = `background: var(--surface); border: 1px solid rgba(124,58,237,0.1); animation-delay: ${0.3 + i * 0.1}s;`;
+        
+        const badgeHTML = p.badge ? `<span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wider text-white" style="background: var(--primary);">${p.badge}</span>` : '';
+        
+        const isDazn = p.name === 'DAZN';
+        const textColor = isDazn ? '#0d0d0d' : 'white';
+
+        card.innerHTML = `
+          <div class="relative p-6 flex items-center gap-4" style="background: ${p.gradient};">
+            ${badgeHTML}
+            <span class="text-5xl">${p.emoji}</span>
+            <div>
+              <h3 class="text-xl font-extrabold" style="color: ${textColor};">${p.name}</h3>
+              <p class="text-3xl font-black tracking-tight" style="color: ${textColor};">${p.price}</p>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-sm mb-4" style="color: #8b8a97;">${p.desc}</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="inline-block w-2 h-2 rounded-full" style="background: #22c55e;"></span>
+                <span class="text-xs font-medium" style="color: #22c55e;">En stock</span>
+              </div>
+              <a href="https://www.paypal.com/paypalme/tallzoid/${p.name === 'Prime Video' ? '3.5' : '3'}" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-pay px-4 py-2 rounded-lg text-sm font-bold text-white"
+                 style="background: var(--primary);">
+                Acheter →
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Generate a simple QR-style SVG pattern (visual representation)
+    function generateQR() {
+      const svg = document.getElementById('qr-svg');
+      const size = 180;
+      const modules = 25;
+      const moduleSize = size / modules;
+      
+      // Seed-based pattern to represent the PayPal URL
+      const seed = 'paypalmetallzoid';
+      let html = '';
+      
+      // Draw finder patterns (the 3 corner squares)
+      function drawFinder(x, y) {
+        const s = moduleSize;
+        // Outer
+        html += `<rect x="${x*s}" y="${y*s}" width="${7*s}" height="${7*s}" fill="#1a1a2e" rx="1"/>`;
+        html += `<rect x="${(x+0.5)*s}" y="${(y+0.5)*s}" width="${6*s}" height="${6*s}" fill="white" rx="0.5"/>`;
+        html += `<rect x="${(x+1.5)*s}" y="${(y+1.5)*s}" width="${4*s}" height="${4*s}" fill="#1a1a2e" rx="1"/>`;
+        html += `<rect x="${(x+2)*s}" y="${(y+2)*s}" width="${3*s}" height="${3*s}" fill="white" rx="0.5"/>`;
+        html += `<rect x="${(x+2.5)*s}" y="${(y+2.5)*s}" width="${2*s}" height="${2*s}" fill="#7c3aed" rx="0.5"/>`;
+      }
+
+      drawFinder(1, 1);
+      drawFinder(17, 1);
+      drawFinder(1, 17);
+
+      // Generate data modules with deterministic pattern
+      for (let row = 0; row < modules; row++) {
+        for (let col = 0; col < modules; col++) {
+          // Skip finder pattern areas
+          if ((row < 9 && col < 9) || (row < 9 && col > 16) || (row > 16 && col < 9)) continue;
+          
+          const charCode = seed.charCodeAt((row * modules + col) % seed.length);
+          const hash = ((row * 31 + col * 17 + charCode * 7) % 100);
+          
+          if (hash < 42) {
+            const color = hash < 15 ? '#7c3aed' : '#1a1a2e';
+            html += `<rect x="${(col + 0.5) * moduleSize}" y="${(row + 0.5) * moduleSize}" width="${moduleSize * 0.85}" height="${moduleSize * 0.85}" fill="${color}" rx="1"/>`;
+          }
+        }
+      }
+      
+      svg.innerHTML = html;
+    }
+
+    // Config & SDK
+    const defaultConfig = {
+      shop_title: 'TXLLZOID',
+      shop_subtitle: 'Tes comptes premium au meilleur prix',
+      banner_text: '🔥 OFFRE LIMITÉE — Tous les comptes à partir de 3€ !',
+      payment_title: 'Paiement sécurisé via PayPal',
+      footer_text: '© 2025 TXLLZOID — Tous droits réservés',
+      background_color: '#0a0a0f',
+      surface_color: '#13131d',
+      text_color: '#e8e6f0',
+      primary_color: '#7c3aed',
+      secondary_color: '#1e1e2e',
+      font_family: 'Outfit',
+      font_size: 16
+    };
+
+    function applyConfig(config) {
+      const c = { ...defaultConfig, ...config };
+
+      // Text content
+      document.getElementById('shop-title').textContent = c.shop_title;
+      
+      const subtitleEl = document.getElementById('shop-subtitle');
+      subtitleEl.innerHTML = '';
+      const parts = c.shop_subtitle.split(' ');
+      const midpoint = Math.ceil(parts.length / 2);
+      const firstHalf = parts.slice(0, midpoint).join(' ');
+      const secondHalf = parts.slice(midpoint).join(' ');
+      subtitleEl.innerHTML = `${firstHalf}<br><span style="background: linear-gradient(135deg, ${c.primary_color}, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${secondHalf}</span>`;
+
+      document.getElementById('promo-banner').textContent = c.banner_text;
+      document.getElementById('payment-title').textContent = c.payment_title;
+      document.getElementById('footer-text').textContent = c.footer_text;
+
+      // Colors
+      document.documentElement.style.setProperty('--bg', c.background_color);
+      document.documentElement.style.setProperty('--surface', c.surface_color);
+      document.documentElement.style.setProperty('--text', c.text_color);
+      document.documentElement.style.setProperty('--primary', c.primary_color);
+      document.documentElement.style.setProperty('--secondary', c.secondary_color);
+
+      document.body.style.backgroundColor = c.background_color;
+      document.body.style.color = c.text_color;
+
+      document.getElementById('shop-title').style.color = c.text_color;
+      document.getElementById('payment-title').style.color = c.text_color;
+
+      // Update primary-colored elements
+      document.querySelectorAll('.btn-pay').forEach(btn => {
+        if (!btn.style.background.includes('gradient')) {
+          btn.style.background = c.primary_color;
+        }
+      });
+
+      // Font
+      const fontStack = `${c.font_family}, 'Outfit', sans-serif`;
+      document.body.style.fontFamily = fontStack;
+      document.getElementById('shop-title').style.fontFamily = fontStack;
+      document.getElementById('shop-subtitle').style.fontFamily = fontStack;
+      document.getElementById('payment-title').style.fontFamily = fontStack;
+
+      // Font size
+      const base = c.font_size;
+      document.getElementById('shop-title').style.fontSize = `${base * 1.3}px`;
+      document.getElementById('promo-banner').style.fontSize = `${base * 0.875}px`;
+      document.getElementById('footer-text').style.fontSize = `${base * 0.875}px`;
+    }
+
+    // Initialize
+    renderProducts();
+    generateQR();
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          applyConfig(config);
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (v) => { config.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (v) => { config.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['shop_title', config.shop_title || defaultConfig.shop_title],
+          ['shop_subtitle', config.shop_subtitle || defaultConfig.shop_subtitle],
+          ['banner_text', config.banner_text || defaultConfig.banner_text],
+          ['payment_title', config.payment_title || defaultConfig.payment_title],
+          ['footer_text', config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+
+    applyConfig(defaultConfig);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cb21034a4d1666a',t:'MTc3MDYyNjQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
