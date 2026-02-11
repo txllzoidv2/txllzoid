@@ -325,7 +325,6 @@
    </div>
   </div>
   <script>
-    // Services data
     const services = [
       { id: 'netflix', name: 'Netflix Premium', price: '3€', icon: '🎬', color: 'from-red-600 to-red-800', desc: 'Films, séries et documentaires en illimité. Qualité 4K UHD disponible.' },
       { id: 'disney', name: 'Disney+ Premium', price: '3€', icon: '🏰', color: 'from-blue-600 to-indigo-800', desc: 'Marvel, Star Wars, Pixar et tout l\'univers Disney en streaming.' },
@@ -352,14 +351,26 @@
       hero_subtitle: 'Ta source de comptes premium à prix mini'
     };
 
-    // Render services
     function renderServices(filter = '') {
       const grid = document.getElementById('services-grid');
+      if (!grid) return;
+      
       const filtered = services.filter(s => 
         s.name.toLowerCase().includes(filter.toLowerCase()) ||
         s.desc.toLowerCase().includes(filter.toLowerCase())
       );
       
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12">
+            <div class="text-4xl mb-4">🔍</div>
+            <p class="text-gray-400">Aucun service trouvé pour "${filter}"</p>
+            <p class="text-gray-500 text-sm mt-2">Suggère-le nous en bas de page !</p>
+          </div>
+        `;
+        return;
+      }
+
       grid.innerHTML = filtered.map(service => `
         <div class="service-card rounded-2xl p-5 sm:p-6 group" data-service="${service.id}">
           <div class="flex items-start justify-between mb-4">
@@ -374,21 +385,11 @@
           <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">${service.desc}</p>
         </div>
       `).join('');
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full text-center py-12">
-            <div class="text-4xl mb-4">🔍</div>
-            <p class="text-gray-400">Aucun service trouvé pour "${filter}"</p>
-            <p class="text-gray-500 text-sm mt-2">Suggère-le nous en bas de page !</p>
-          </div>
-        `;
-      }
     }
 
-    // Render reviews
     function renderReviews(data) {
       const list = document.getElementById('reviews-list');
+      if (!list) return;
       
       if (data.length === 0) {
         list.innerHTML = `
@@ -419,7 +420,6 @@
       `).join('');
     }
 
-    // Star rating
     document.querySelectorAll('.star-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         selectedRating = parseInt(btn.dataset.rating);
@@ -430,15 +430,15 @@
       });
     });
 
-    // Search functionality
     document.getElementById('search-input').addEventListener('input', (e) => {
       renderServices(e.target.value);
     });
 
-    // Apply config to UI
     function applyConfig(cfg) {
       const titleEl = document.getElementById('nav-title');
-      titleEl.innerHTML = `<span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">${cfg.site_title?.substring(0, 3) || 'Vay'}</span><span class="text-white">${cfg.site_title?.substring(3) || 'Tx'}</span>`;
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">${cfg.site_title?.substring(0, 3) || 'Vay'}</span><span class="text-white">${cfg.site_title?.substring(3) || 'Tx'}</span>`;
+      }
       
       const heroTitle = document.querySelector('h1');
       if (heroTitle) {
@@ -451,7 +451,6 @@
       }
     }
 
-    // Data handler for reviews
     const dataHandler = {
       onDataChanged(data) {
         reviews = data;
@@ -459,11 +458,9 @@
       }
     };
 
-    // Initialize
     async function init() {
       renderServices();
       
-      // Initialize Element SDK
       if (window.elementSdk) {
         window.elementSdk.init({
           defaultConfig,
@@ -484,7 +481,6 @@
         });
       }
 
-      // Initialize Data SDK
       if (window.dataSdk) {
         const result = await window.dataSdk.init(dataHandler);
         if (!result.isOk) {
@@ -492,7 +488,6 @@
         }
       }
 
-      // Review form submission
       document.getElementById('review-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -539,7 +534,6 @@
         }
       });
 
-      // Suggestion form
       document.getElementById('suggestion-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const input = document.getElementById('suggestion-input');
@@ -555,5 +549,5 @@
 
     init();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc4f3de32fc66af',t:'MTc3MDgyNDUwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc4fa6ce08266af',t:'MTc3MDgyNDc3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
