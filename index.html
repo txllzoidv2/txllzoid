@@ -4,177 +4,223 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VayTx</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    html, body {
+      min-height: 100%;
+      width: 100%;
+    }
+ 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: radial-gradient(ellipse at top, #0f172a, #020617);
+      font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      background: radial-gradient(ellipse at top, #0f172a 0%, #020617 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
       color: #e2e8f0;
     }
-
-    .neon-glow {
-      box-shadow: 0 0 15px rgba(59,130,246,0.5), 0 0 60px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05);
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+ 
+    main {
+      width: 100%;
+      min-height: 100vh;
+      padding: 48px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .neon-glow:hover {
-      box-shadow: 0 0 25px rgba(59,130,246,0.8), 0 0 80px rgba(59,130,246,0.4), inset 0 0 30px rgba(59,130,246,0.1);
-      transform: translateY(-6px) scale(1.03);
+ 
+    /* TITLE */
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #60a5fa;
+      animation: pulse-neon 3s infinite;
+      margin-bottom: 12px;
     }
-
-    .card-item {
-      opacity: 0;
-      animation: fadeUp 0.6s forwards;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .card-item:nth-child(1)  { animation-delay: .10s }
-    .card-item:nth-child(2)  { animation-delay: .15s }
-    .card-item:nth-child(3)  { animation-delay: .20s }
-    .card-item:nth-child(4)  { animation-delay: .25s }
-    .card-item:nth-child(5)  { animation-delay: .30s }
-    .card-item:nth-child(6)  { animation-delay: .35s }
-    .card-item:nth-child(7)  { animation-delay: .40s }
-    .card-item:nth-child(8)  { animation-delay: .45s }
-    .card-item:nth-child(9)  { animation-delay: .50s }
-    .card-item:nth-child(10) { animation-delay: .55s }
-
+ 
     @keyframes pulse-neon {
       0%,100% { text-shadow: 0 0 10px #3b82f6, 0 0 40px #3b82f6; }
       50%      { text-shadow: 0 0 20px #60a5fa, 0 0 80px #3b82f6, 0 0 120px #2563eb; }
     }
-    .title-glow {
-      animation: pulse-neon 3s infinite;
-      color: #60a5fa;
+ 
+    .subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 40px;
     }
-
-    .glass {
+ 
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+ 
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+ 
+    /* CARD */
+    .card {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(59,130,246,0.2);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 16px;
+      padding: 20px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(59,130,246,0.4), 0 0 50px rgba(59,130,246,0.15), inset 0 0 20px rgba(59,130,246,0.04);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+      opacity: 0;
+      animation: fadeUp 0.6s forwards;
     }
-
-    .price-badge {
+ 
+    .card:hover {
+      box-shadow: 0 0 25px rgba(59,130,246,0.8), 0 0 80px rgba(59,130,246,0.4), inset 0 0 30px rgba(59,130,246,0.1);
+      transform: translateY(-6px) scale(1.03);
+    }
+ 
+    .card:nth-child(1)  { animation-delay: .10s }
+    .card:nth-child(2)  { animation-delay: .15s }
+    .card:nth-child(3)  { animation-delay: .20s }
+    .card:nth-child(4)  { animation-delay: .25s }
+    .card:nth-child(5)  { animation-delay: .30s }
+    .card:nth-child(6)  { animation-delay: .35s }
+    .card:nth-child(7)  { animation-delay: .40s }
+    .card:nth-child(8)  { animation-delay: .45s }
+    .card:nth-child(9)  { animation-delay: .50s }
+    .card:nth-child(10) { animation-delay: .55s }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    .card-icon { font-size: 2rem; line-height: 1; }
+ 
+    .card-name {
+      color: #e2e8f0;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+ 
+    .price {
       background: #3b82f6;
       color: #fff;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       padding: 2px 12px;
       border-radius: 9999px;
     }
-
-    .instagram-link {
-      color: #818cf8;
-      font-size: 1.1rem;
-      font-weight: 700;
+ 
+    /* FOOTER */
+    footer {
+      margin-top: 56px;
+      text-align: center;
     }
-    .instagram-link:hover { text-decoration: underline; }
-
-    .card-label {
-      color: #e2e8f0;
+ 
+    footer p {
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+ 
+    .ig-link {
+      color: #818cf8;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .ig-link:hover { text-decoration: underline; }
+ 
+    .disclaimer {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.55;
+      color: #94a3b8;
     }
   </style>
 </head>
-<body class="min-h-screen w-full">
-  <main class="w-full min-h-screen px-4 py-12 flex flex-col items-center">
-
-    <!-- Header -->
-    <header class="text-center mb-4">
-      <h1 class="text-5xl md:text-7xl font-black title-glow tracking-tight">VayTx</h1>
-    </header>
-
-    <p class="text-center mb-10 text-lg max-w-2xl text-slate-300">
-      Tous tes comptes premium à 5€ — rapide, fiable, garanti.
-    </p>
-
-    <!-- Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl w-full">
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🎬</span>
-        <span class="card-label">Netflix</span>
-        <span class="price-badge">5€</span>
+<body>
+  <main>
+    <h1>VayTx</h1>
+    <p class="subtitle">Tous tes comptes premium à 5€ — rapide, fiable, garanti.</p>
+ 
+    <div class="grid">
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🎬</span>
+        <span class="card-name">Netflix</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">📺</span>
-        <span class="card-label">HBO Max</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">📺</span>
+        <span class="card-name">HBO Max</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">⭐</span>
-        <span class="card-label">Paramount+</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">⭐</span>
+        <span class="card-name">Paramount+</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🥊</span>
-        <span class="card-label">UFC</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🥊</span>
+        <span class="card-name">UFC</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🎵</span>
-        <span class="card-label">Spotify</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🎵</span>
+        <span class="card-name">Spotify</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">✨</span>
-        <span class="card-label">Disney+</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">✨</span>
+        <span class="card-name">Disney+</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">📦</span>
-        <span class="card-label">Prime Video</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">📦</span>
+        <span class="card-name">Prime Video</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🎶</span>
-        <span class="card-label">Deezer Premium</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🎶</span>
+        <span class="card-name">Deezer Premium</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🔒</span>
-        <span class="card-label">NordVPN</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🔒</span>
+        <span class="card-name">NordVPN</span>
+        <span class="price">5€</span>
       </a>
-
-      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer"
-         class="card-item neon-glow glass rounded-2xl p-5 flex flex-col items-center justify-center gap-2 cursor-pointer text-center no-underline">
-        <span class="text-3xl">🤖</span>
-        <span class="card-label">ChatGPT Plus</span>
-        <span class="price-badge">5€</span>
+      <a href="https://paypal.me/tallzoid" target="_blank" rel="noopener noreferrer" class="card">
+        <span class="card-icon">🤖</span>
+        <span class="card-name">ChatGPT Plus</span>
+        <span class="price">5€</span>
       </a>
-
     </div>
-
-    <!-- Footer -->
-    <footer class="mt-14 text-center">
-      <p class="text-slate-300 mb-2">Une question ? Contacte-moi :</p>
-      <a href="https://instagram.com/txllzoid" target="_blank" rel="noopener noreferrer" class="instagram-link">@txllzoid</a>
-      <p class="mt-6 text-xs max-w-sm mx-auto opacity-60 text-slate-400">
-        Ce site est un projet personnel d'entraînement au codage. Aucune revente de comptes.
-      </p>
+ 
+    <footer>
+      <p>Une question ? Contacte-moi :</p>
+      <a href="https://instagram.com/txllzoid" target="_blank" rel="noopener noreferrer" class="ig-link">@txllzoid</a>
+      <p class="disclaimer">Ce site est un projet personnel d'entraînement au codage. Aucune revente de comptes.</p>
     </footer>
-
   </main>
 </body>
 </html>
