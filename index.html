@@ -711,13 +711,21 @@
     </footer>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
+    // ── EmailJS init ──
+    emailjs.init('VUkj_BQE-mo11I0V_');
+
+    let currentProduct = '';
+
     // ── Modal ──
     function openModal(name, imgSrc) {
+      currentProduct = name;
       document.getElementById('modal-name').textContent = name;
       document.getElementById('modal-img').src = imgSrc;
       document.getElementById('modal-img').alt = name;
       document.getElementById('buyer-email').value = '';
+      document.getElementById('buyer-email').style.borderColor = '';
       document.getElementById('modal-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -727,27 +735,53 @@
       document.body.style.overflow = '';
     }
 
-    // Close on backdrop click
     document.getElementById('modal-overlay').addEventListener('click', function(e) {
       if (e.target === this) closeModal();
     });
 
-    // Close on Escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeModal();
     });
 
     function goPayPal() {
-      const email = document.getElementById('buyer-email').value.trim();
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('buyer-email').focus();
-        document.getElementById('buyer-email').style.borderColor = 'rgba(255,80,80,0.5)';
-        setTimeout(() => document.getElementById('buyer-email').style.borderColor = '', 1500);
+      const emailInput = document.getElementById('buyer-email');
+      const email = emailInput.value.trim();
+      const btn = document.querySelector('.pay-btn');
+
+      if (!email) {
+        emailInput.focus();
+        emailInput.style.borderColor = 'rgba(255,80,80,0.7)';
+        emailInput.placeholder = "Entre ton email d'abord !";
+        setTimeout(() => {
+          emailInput.style.borderColor = '';
+          emailInput.placeholder = 'exemple@gmail.com';
+        }, 2500);
         return;
       }
-      // PayPal send money link — pre-fills recipient email, amount, note
-      const paypalUrl = 'https://www.paypal.com/paypalme/txllzoid/5EUR';
-      window.open(paypalUrl, '_blank');
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailInput.focus();
+        emailInput.style.borderColor = 'rgba(255,80,80,0.7)';
+        setTimeout(() => emailInput.style.borderColor = '', 2000);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours...';
+
+      emailjs.send('service_492t0fj', 'template_u5lphax', {
+        buyer_email: email,
+        product: currentProduct
+      }).then(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7.5 21H4.5C3.67 21 3 20.33 3 19.5V8.5C3 7.67 3.67 7 4.5 7H7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M8 7C8 5.34 9.34 4 11 4H16C18.76 4 21 6.24 21 9C21 11.76 18.76 14 16 14H13L11.5 21H8L9.5 14H8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Payer via PayPal — 5€';
+        window.open('https://www.paypal.com/paypalme/txllzoid/5EUR', '_blank');
+      }, function(error) {
+        console.error('EmailJS error:', error);
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7.5 21H4.5C3.67 21 3 20.33 3 19.5V8.5C3 7.67 3.67 7 4.5 7H7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M8 7C8 5.34 9.34 4 11 4H16C18.76 4 21 6.24 21 9C21 11.76 18.76 14 16 14H13L11.5 21H8L9.5 14H8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Payer via PayPal — 5€';
+        window.open('https://www.paypal.com/paypalme/txllzoid/5EUR', '_blank');
+      });
     }
 
     // ── Animated background ──
